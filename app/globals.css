@@ -83,3 +83,8 @@ body {
   font-family: 'Libre', Arial, Helvetica, sans-serif;
   font-weight: 700;
 }
+.libre-bold {
+  font-family: 'Libre', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-weight: bold;
+}

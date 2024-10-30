@@ -18,9 +18,9 @@ export const navigation = {
             "label": "Opinion",
             "url": "/opinion"
         },
-        "community": {
-            "label": "Community",
-            "url": "/community"
+        "podcasts": {
+            "label": "Podcasts",
+            "url": "/podcasts"
         },
         "campus": {
             "main": {
@@ -106,6 +106,10 @@ export const navigation = {
                 "url": "/legal/cookies"
             }
         }
+    },
+    "socials": {
+        "facebook": "https://www.facebook.com",
+        "instagram": "https://www.instagram.com"
     }
 }
 

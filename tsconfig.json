@@ -22,6 +22,7 @@
       "@/*": ["./*"],
       "@data/*": ["./data/*"],
       "@components/*": ["./components/*"],
+      "@api/*": ["./app/pages/api/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
