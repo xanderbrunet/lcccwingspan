@@ -88,3 +88,199 @@ body {
   font-weight: 700;
   font-weight: bold;
 }
+
+.loading02 span {
+  animation: loading02 3s infinite alternate; /* Increased duration */
+}
+.loading02 span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.loading02 span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.loading02 span:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.loading02 span:nth-child(5) {
+  animation-delay: 1.2s;
+}
+.loading02 span:nth-child(6) {
+  animation-delay: 1.5s;
+}
+.loading02 span:nth-child(7) {
+  animation-delay: 1.8s;
+}
+.loading02 span:nth-child(8) {
+  animation-delay: 2.1s;
+}
+.loading02 span:nth-child(9) {
+  animation-delay: 2.4s;
+}
+.loading02 span:nth-child(10) {
+  animation-delay: 2.7s;
+}
+.loading02 span:nth-child(11) {
+  animation-delay: 3s;
+}
+.loading02 span:nth-child(12) {
+  animation-delay: 3.3s;
+}
+.loading02 svg {
+  animation: loading02 3s infinite alternate; /* Same duration as span */
+}
+.loading02 svg:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.loading02 svg:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.loading02 svg:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.loading02 svg:nth-child(5) {
+  animation-delay: 1.2s;
+}
+.loading02 svg:nth-child(6) {
+  animation-delay: 1.5s;
+}
+.loading02 svg:nth-child(7) {
+  animation-delay: 1.8s;
+}
+.loading02 svg:nth-child(8) {
+  animation-delay: 2.1s;
+}
+.loading02 svg:nth-child(9) {
+  animation-delay: 2.4s;
+}
+.loading02 svg:nth-child(10) {
+  animation-delay: 2.7s;
+}
+.loading02 svg:nth-child(11) {
+  animation-delay: 3s;
+}
+.loading02 svg:nth-child(12) {
+  animation-delay: 3.3s;
+}
+@keyframes loading02 {
+  0% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(1px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes snowfall {
+  from { background-position: 0 0; }
+  to { background-position: 0 100vh; }
+}
+
+#snowfall-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  transform: scale(1.4); /* Slightly enlarges the canvas */
+}
+
+
+.lightrope {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  bottom: -60px; /* Make sure lights are hanging below the navbar */
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  width: 100%;
+}
+
+.lightrope li {
+  position: relative;
+  list-style: none;
+  display: inline-block;
+  width: 5px;  /* Smaller bulbs */
+  height: 12px;  /* Smaller bulbs */
+  border-radius: 50%;
+  margin: 40px;  /* Increase space between bulbs for a more spaced out look */
+  background: #00f7a5;
+  box-shadow: 0px 1px 6px 1px #00f7a5;  /* Subtle shadow for smaller bulbs */
+  animation-name: flash-1;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.lightrope li:nth-child(2n+1) {
+  background: aqua;
+  box-shadow: 0px 1px 6px 1px rgba(0, 255, 255, 0.5);
+  animation-name: flash-2;
+  animation-duration: 2s;
+}
+
+.lightrope li:nth-child(4n+2) {
+  background: #f70094;
+  box-shadow: 0px 1px 6px 1px #f70094;
+  animation-name: flash-3;
+  animation-duration: 2s;
+}
+
+.lightrope li:nth-child(odd) {
+  animation-duration: 1.8s;
+}
+
+.lightrope li:nth-child(3n+1) {
+  animation-duration: 2s;
+}
+
+.lightrope li:before {
+  content: "";
+  position: absolute;
+  background: #222;
+  width: 3px;  /* Keep connector small */
+  height: 3px;  /* Keep connector small */
+  border-radius: 2px;
+  top: -1px;  /* Adjust position closer to the bulb */
+  left: 1px;
+}
+
+/* Flash Animations */
+@keyframes flash-1 {
+  0%, 100% {
+    background: #00f7a5;
+    box-shadow: 0px 1px 6px 1px #00f7a5;
+  }
+  50% {
+    background: rgba(0, 247, 165, 0.4);
+    box-shadow: 0px 1px 6px 1px rgba(0, 247, 165, 0.2);
+  }
+}
+
+@keyframes flash-2 {
+  0%, 100% {
+    background: aqua;
+    box-shadow: 0px 1px 6px 1px aqua;
+  }
+  50% {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 1px 6px 1px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes flash-3 {
+  0%, 100% {
+    background: #f70094;
+    box-shadow: 0px 1px 6px 1px #f70094;
+  }
+  50% {
+    background: rgba(247, 0, 148, 0.4);
+    box-shadow: 0px 1px 6px 1px rgba(247, 0, 148, 0.2);
+  }
+}

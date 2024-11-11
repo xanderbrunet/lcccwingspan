@@ -4,6 +4,8 @@ import { useParams } from "next/navigation";
 import { supabase } from "@api/supabaseClient";
 import { jsonToHtml, Article } from "@components/jsonHtmlTranslator";
 import React from "react";
+import { motion } from "framer-motion"; // Import framer-motion
+import { LoadingAnimation } from "@/components/loading";
 
 const StoryPage: React.FC = () => {
   const { slug } = useParams();
@@ -34,9 +36,8 @@ const StoryPage: React.FC = () => {
           throw new Error("Article not found.");
         }
 
-        console.log("Data fetched from database:", data); // Log fetched data
+        console.log("Data fetched from database:", data);
 
-        // Set article data directly, as the JSON to HTML translator should take care of the formatting.
         setArticleData(data.content);
       } catch (error) {
         if (error instanceof Error) {
@@ -53,20 +54,40 @@ const StoryPage: React.FC = () => {
   }, [slug]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <LoadingAnimation />
+    );
   }
 
   if (!articleData) {
-    return <p>Article not found or there was an error fetching data.</p>;
+    return (
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        Article not found or there was an error fetching data.
+      </motion.p>
+    );
   }
 
   // Convert the JSON structure to HTML using the translator function
   const htmlContent = jsonToHtml(articleData);
 
   return (
-    <div className="max-w-prose mx-auto mt-20 libre-regular bg-background p-5">
-      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-    </div>
+    <motion.div
+      className="max-w-prose mx-auto mt-20 libre-regular bg-background p-5"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <motion.div
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      />
+    </motion.div>
   );
 };
 

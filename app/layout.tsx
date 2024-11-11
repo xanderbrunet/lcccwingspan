@@ -22,13 +22,9 @@ export const metadata: Metadata = {
   description: navigation.site_description,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="utf-8" />
