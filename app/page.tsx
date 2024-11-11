@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { navigation } from "@/data/navigation";
 import { motion } from "framer-motion";
 import { LoadingAnimation } from "@components/loading";
-import { siteTheme } from "@/app/siteTheme";
 
 export default function Home() {
   interface Article {
@@ -27,14 +26,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [secondaryFeatured, setSecondaryFeatured] = useState<Article[]>([]);
   const [imageLoaded, setImageLoaded] = useState<{ [key: string]: boolean }>({});
-
-  const [isChristmasTheme, setIsChristmasTheme] = useState(false);
-  // const [isHalloweenTheme, setIsHalloweenTheme] = useState(false);
-
-  useEffect(() => {
-    siteTheme().then(settings => setIsChristmasTheme(settings.setIsChristmas === true));
-    // setIsHalloweenTheme(siteTheme.setIsHalloween ==  true)
-  }, []);
 
   useEffect(() => {
     const fetchArticles = async () => {
