@@ -5,6 +5,7 @@ import "./globals.css";
 import { navigation } from "@/data/navigation";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +39,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
           {children}
         </div>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
