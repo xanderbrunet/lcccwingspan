@@ -32,10 +32,10 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden min-h-dvh max-w-dvw`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden min-h-dvh max-w-dvw m-0 p-0`}
       >
         <Navbar />
-        <div className="container py-2 md:px-10 px-2 pb-32 min-h-dvh max-w-dvw">
+        <div className="container md:px-10 px-2 pb-32 min-h-dvh max-w-dvw">
           {children}
         </div>
         <Footer />

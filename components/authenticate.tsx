@@ -36,17 +36,17 @@ interface Props {
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full"
+            className="bg-white dark:bg-black p-8 rounded-lg shadow-lg max-w-md w-full"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
             <h1 className='text-3xl cormorant-bold text-center'>The Wingpsan Editor</h1>
-            <h2 className="text-xl libre-regular font-bold text-center text-gray-700 mb-10">Login to access this page</h2>
+            <h2 className="text-xl libre-regular font-bold text-center text-gray-700 dark:text-gray-300 mb-10">Login to access this page</h2>
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 libre-light">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 libre-light">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -57,7 +57,7 @@ interface Props {
                 />
               </div>
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 libre-light">Password</label>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 libre-light">Password</label>
                 <input
                   type="password"
                   id="password"
@@ -71,7 +71,7 @@ interface Props {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-2 px-4 bg-blue-600 text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 libre-medium ${
+                className={`w-full py-2 px-4 bg-blue-600 text-white shadow hover:bg-blue-700 dark:bg-blue-900 dark:hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 libre-medium ${
                   isSubmitting ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >

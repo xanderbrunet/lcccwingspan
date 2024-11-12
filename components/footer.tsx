@@ -142,6 +142,12 @@ export const Footer = () => {
           >
             {navigation.links.legal.terms.label}
           </Link>
+          <Link
+            href={"/editor"}
+            className="text-lg text-neutral-700 dark:text-neutral-300 libre-regular hover:underline"
+          >
+            The Editor
+          </Link>
         </div>
       </div>
     </div>

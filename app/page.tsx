@@ -30,6 +30,7 @@ export default function Home() {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
+        // Fetch the primary featured article
         const { data: articles, error } = await supabase
           .from("articles")
           .select(`
@@ -58,6 +59,7 @@ export default function Home() {
           setFeaturedArticle(formattedArticle);
         }
 
+        // Fetch secondary articles with one of the secondary primary flags set to true
         const { data: secondaryArticles, error: secondaryError } = await supabase
           .from("articles")
           .select(`
@@ -69,9 +71,8 @@ export default function Home() {
             slug,
             author:authors!articles_author_id_fkey (name)
           `)
-          .eq("is_secondary_primary", true)
-          .limit(4)
-          .order("published_at", { ascending: false });
+          .or("is_secondary_primary_1.eq.true,is_secondary_primary_2.eq.true,is_secondary_primary_3.eq.true,is_secondary_primary_4.eq.true")
+          .order("published_at", { ascending: true }) // Optional: Sort by date
 
         if (secondaryError) throw secondaryError;
 
@@ -106,9 +107,7 @@ export default function Home() {
 
   return (
     <div className="h-full w-full">
-      {loading && (
-        <LoadingAnimation />
-      )}
+      {loading && <LoadingAnimation />}
 
       {!loading && featuredArticle && (
         <motion.div
